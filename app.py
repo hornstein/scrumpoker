@@ -4,7 +4,7 @@ import os
 
 from flask import Flask
 from flask import request, Response, jsonify
-from flask import render_template, send_from_directory
+#from flask import render_template, send_from_directory
 
 
 import requests
@@ -13,7 +13,7 @@ mydict={}
 mydict2={}
 revealScores=False
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__)
 
 
 @app.route('/')
@@ -110,10 +110,10 @@ def start():
 
 @app.route('/reset')
 def reset():
-    global mydict, mydict2, reveal
+    global mydict, mydict2, revealScores
     mydict={}
     mydict2={}
-    reveal=False
+    revealScores=False
     return 200
 
 
